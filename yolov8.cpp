@@ -4,7 +4,7 @@ using namespace std;
 using namespace cv;
 using namespace cv::dnn;
 
-bool Yolov8::ReadModel(Net& net, string& netPath, bool isCuda = false) {
+bool Yolov8::ReadModel(Net& net,const string& netPath, bool isCuda = false) {
 	try {
 		net = readNet(netPath);
 #if CV_VERSION_MAJOR==4 &&CV_VERSION_MINOR==7&&CV_VERSION_REVISION==0

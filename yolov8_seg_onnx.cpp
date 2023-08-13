@@ -239,9 +239,9 @@ bool Yolov8SegOnnx::OnnxBatchDetect(std::vector<cv::Mat>& srcImgs, std::vector<s
 		all_data += one_output_length;
 		float* pdata = (float*)output0.data;
 		int rows = output0.rows;
-		std::vector<int> class_ids;//½á¹ûidÊý×é
-		std::vector<float> confidences;//½á¹ûÃ¿¸öid¶ÔÓ¦ÖÃÐÅ¶ÈÊý×é
-		std::vector<cv::Rect> boxes;//Ã¿¸öid¾ØÐÎ¿ò
+		std::vector<int> class_ids;//ï¿½ï¿½ï¿½idï¿½ï¿½ï¿½ï¿½
+		std::vector<float> confidences;//ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½idï¿½ï¿½Ó¦ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ï¿½
+		std::vector<cv::Rect> boxes;//Ã¿ï¿½ï¿½idï¿½ï¿½ï¿½Î¿ï¿½
 		std::vector<vector<float>> picked_proposals;  //output0[:,:, 5 + _className.size():net_width]===> for mask
 		for (int r = 0; r < rows; ++r) {    //stride
 				cv::Mat scores(1, _className.size(), CV_32F, pdata +4);
@@ -263,7 +263,7 @@ bool Yolov8SegOnnx::OnnxBatchDetect(std::vector<cv::Mat>& srcImgs, std::vector<s
 					confidences.push_back(max_class_socre );
 					boxes.push_back(Rect(left, top, int(w + 0.5), int(h + 0.5)));
 				}
-				pdata += net_width;//ÏÂÒ»ÐÐ
+				pdata += net_width;//ï¿½ï¿½Ò»ï¿½ï¿½
 		}
 
 		vector<int> nms_result;
@@ -290,7 +290,7 @@ bool Yolov8SegOnnx::OnnxBatchDetect(std::vector<cv::Mat>& srcImgs, std::vector<s
 		}
 
 		//******************** ****************
-		// ÀÏ°æ±¾µÄ·½°¸£¬Èç¹ûÉÏÃæÔÚ¿ªÆôÎÒ×¢ÊÍµÄ²¿·ÖÖ®ºó»¹Ò»Ö±±¨´í£¬½¨ÒéÊ¹ÓÃÕâ¸ö¡£
+		// ï¿½Ï°æ±¾ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ÍµÄ²ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ò»Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		// If the GetMask2() still reports errors , it is recommended to use GetMask().
 		// Mat mask_proposals;
 		//for (int i = 0; i < temp_mask_proposals.size(); ++i)

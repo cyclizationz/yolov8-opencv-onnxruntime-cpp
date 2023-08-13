@@ -1,6 +1,7 @@
 # yolov8-opencv-onnxruntime-cpp
-## 使用OpenCV-dnn和ONNXRuntime部署yolov8目标检测和实例分割模型<br>
-基于yolov8:https://github.com/ultralytics/ultralytics
+## Use OpenCV-dnn and ONNXRuntime to deploy yolov8 detection and instance segmentation model<br>
+Based upon:
+yolov8:https://github.com/ultralytics/ultralytics
 
 ## requirements for opencv-dnn
 1. > OpenCV>=4.7.0<br>
@@ -14,15 +15,83 @@ OpenCV>=4.7.0<br>
 >opencv>=4.5.0 </br>
 ONNXRuntime>=1.9.0 </br>
 
-## 更新说明：
-#### 2023.02.17更新<br>
-+ 0.新增加onnxruntime旧版本API接口支持
-+ 1.opencv不支持动态推理，请将dymanic设置为False导出onnx,同时opset需要设置为12。
-+ 2.关于换行符，windows下面需要设置为CRLF，上传到github会自动切换成LF，windows下面切换一下即可<br>
+## Build OpenCV:
 
-#### 2023.02.07 更新：</br>
-+ yolov8使用opencv-dnn推理的话，目前只支持opencv4.7.0及其以上的版本，我暂时也没找到怎么修改适应opencv4.5.0的版本（￣へ￣），这个版本需求和onnxruntime无关，onnxruntime只需要4.5.0的版本,4.x的版本应该都可以用，只要能正确读取，有```cv::dnn::blobFromImages()```这个函数即可,如果真的没有这个函数，你自己将其源码抠出来用也是可以的，或者大佬们自己实现该函数功能。
-+ 而目前opencv4.7.0的版本有问题（https://github.com/opencv/opencv/issues/23080) ，如果你的CPU不支持```AVX2```指令集，则需要在```net.forward()``` 前面加上```net.enableWinograd(false);```来关闭Winograd加速，如果支持这个指令集的话可以开启加速（蚊子腿）。
+### Install minimal prerequisites (Ubuntu 18.04 as reference)
+>sudo apt update && sudo apt install -y </br>
+cmake g++ wget unzip </br>
+### Download and unpack sources
+>wget -O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip </br>
+wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.x.zip</br>
+unzip opencv.zip</br>
+unzip opencv_contrib.zip</br>
+### Create build directory and switch into it
+>mkdir -p build && cd build
+### Configure
+>cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.x/modules ../opencv-4.x
+### Build
+> cmake --build .
+### Specify OpenCV_DIR in CMakeLists.txt
+>SET (OpenCV_DIR /path/to/OpenCV/Build)
 
-依照惯例贴一张yolov8-seg.onnx在640x640下用onnxruntime运行结果图：
-![Alt text](images/bus_out.bmp)
+## Build ONNXRuntime
+Checkout the source tree:
+> git clone --recursive https://github.com/Microsoft/onnxruntime.git
+ cd onnxruntime
+
+Install CMake-3.26 or higher. </br>
+On Windows please run:
+> python -m pip install cmake </br>
+where cmake </br>
+
+On Linux please run:
+> python3 -m pip install cmake </br>
+which cmake </br>
+
+### Build Instructions </br>
+#### WINDOWS
+Open Developer Command Prompt for Visual Studio version you are going to use. This will properly setup the environment including paths to your compiler, linker, utilities and header files.
+
+>.\build.bat --config RelWithDebInfo --build_shared_lib --parallel --compile_no_warning_as_error --skip_submodule_sync
+
+The default Windows CMake Generator is Visual Studio 2022. For Visual Studio 2019 add --cmake_generator "Visual Studio 16 2019".
+
+We recommend using Visual Studio 2022.
+
+If you want to build an ARM64 binary on a Windows ARM64 machine, you can use the same command above. Just be sure that your Visual Studio, CMake and Python are all ARM64 version.
+
+If you want to cross-compile an ARM32 or ARM64 or ARM64EC binary on a Windows x86 machine, you need to add “–arm” or “–arm64” or “–arm64ec” to the build command above.
+
+When building on x86 Windows without “–arm” or “–arm64” or “–arm64ec” args, the built binaries will be 64-bit if your python is 64-bit, or 32-bit if your python is 32-bit,
+
+#### LINUX
+> ./build.sh --config RelWithDebInfo --build_shared_lib --parallel --compile_no_warning_as_error --skip_submodule_sync
+
+### Specify ONNXRuntime_LIB in CMakeLists.txt
+ONNX do not provide **find_packages** in CMake, so we should configure cmake using the following script.
+```cmake
+SET(ONNXRUNTIME_ROOT_PATH /root/autodl-tmp/onnxruntime)
+SET(ONNXRUNTIME_INCLUDE_DIRS ${ONNXRUNTIME_ROOT_PATH}/include/onnxruntime
+                             ${ONNXRUNTIME_ROOT_PATH}/onnxruntime
+                             ${ONNXRUNTIME_ROOT_PATH}/include/onnxruntime/core/session/)
+SET(ONNXRUNTIME_LIB ${ONNXRUNTIME_ROOT_PATH}/build/Linux/Release/libonnxruntime.so)
+
+INCLUDE_DIRECTORIES(${ONNXRUNTIME_INCLUDE_DIRS})
+```
+
+## Build project and run
+
+To run this inference in terminal, first change classes list in every .h header files to your customized dataset.</br>
+Then **uncomment** the model you want to use in the main function.
+
+>mkdir -p build</br>
+cmake . </br>
+cd build </br>
+cmake --build .. </br>
+
+Then you can specify parameters in command line like:
+>YOLOv8 -i:./images --task=segment --onnx --cuda:0
+
+## TODO:
+1. Modify multi-file inference, to read models only once per inference.
+2. Add .yaml interpreter to use Python configs directly.

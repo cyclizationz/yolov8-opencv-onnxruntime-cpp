@@ -3,13 +3,13 @@
 #include <numeric>
 #include<opencv2/opencv.hpp>
 
-#define YOLO_P6 false //ÊÇ·ñÊ¹ÓÃP6Ä£ÐÍ
-#define ORT_OLD_VISON 12  //ort1.12.0 Ö®Ç°µÄ°æ±¾Îª¾É°æ±¾API
+#define YOLO_P6 false //ï¿½Ç·ï¿½Ê¹ï¿½ï¿½P6Ä£ï¿½ï¿½
+#define ORT_OLD_VISON 12  //ort1.12.0 Ö®Ç°ï¿½Ä°æ±¾Îªï¿½É°æ±¾API
 struct OutputSeg {
-	int id;             //½á¹ûÀà±ðid
-	float confidence;   //½á¹ûÖÃÐÅ¶È
-	cv::Rect box;       //¾ØÐÎ¿ò
-	cv::Mat boxMask;       //¾ØÐÎ¿òÄÚmask£¬½ÚÊ¡ÄÚ´æ¿Õ¼äºÍ¼Ó¿ìËÙ¶È
+	int id;             //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id
+	float confidence;   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½
+	cv::Rect box;       //ï¿½ï¿½ï¿½Î¿ï¿½
+	cv::Mat boxMask;       //ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½maskï¿½ï¿½ï¿½ï¿½Ê¡ï¿½Ú´ï¿½Õ¼ï¿½Í¼Ó¿ï¿½ï¿½Ù¶ï¿½
 };
 struct MaskParams {
 	int segChannels = 32;
@@ -23,7 +23,7 @@ struct MaskParams {
 
 };
 bool CheckParams(int netHeight, int netWidth, const int* netStride, int strideSize); 
-void DrawPred(cv::Mat& img, std::vector<OutputSeg> result, std::vector<std::string> classNames, std::vector<cv::Scalar> color);
+void DrawPred(cv::Mat& img, std::vector<OutputSeg> result, std::vector<std::string> classNames, std::vector<cv::Scalar> color, const std::string& out_path);
 void LetterBox(const cv::Mat& image, cv::Mat& outImage,
 	cv::Vec4d& params, //[ratio_x,ratio_y,dw,dh]
 	const cv::Size& newShape = cv::Size(640, 640),

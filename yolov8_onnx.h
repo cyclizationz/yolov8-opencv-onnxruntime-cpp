@@ -3,7 +3,7 @@
 #include<memory>
 #include <opencv2/opencv.hpp>
 #include "yolov8_utils.h"
-#include<onnxruntime_cxx_api.h>
+#include<core/session/onnxruntime_cxx_api.h>
 
 //#include <tensorrt_provider_factory.h>  //if use OrtTensorRTProviderOptionsV2
 //#include <onnxruntime_c_api.h>
@@ -45,8 +45,8 @@ private:
 	int Preprocessing(const std::vector<cv::Mat>& SrcImgs, std::vector<cv::Mat>& OutSrcImgs, std::vector<cv::Vec4d>& params);
 #if(defined YOLO_P6 && YOLO_P6==true)
 	//const float _netAnchors[4][6] = { { 19,27, 44,40, 38,94 },{ 96,68, 86,152, 180,137 },{ 140,301, 303,264, 238,542 },{ 436,615, 739,380, 925,792 } };
-	const int _netWidth = 1280;  //ONNXÍ¼Æ¬ÊäÈë¿í¶È
-	const int _netHeight = 1280; //ONNXÍ¼Æ¬ÊäÈë¸ß¶È
+	const int _netWidth = 1280;  //ONNXÍ¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	const int _netHeight = 1280; //ONNXÍ¼Æ¬ï¿½ï¿½ï¿½ï¿½ß¶ï¿½
 	const int _segWidth = 320;  //_segWidth=_netWidth/mask_ratio
 	const int _segHeight = 320;
 	const int _segChannels = 32;
@@ -81,29 +81,21 @@ private:
 	std::shared_ptr<char> _inputName, _output_name0;
 #endif
 
-	std::vector<char*> _inputNodeNames; //ÊäÈë½ÚµãÃû
-	std::vector<char*> _outputNodeNames;//Êä³ö½ÚµãÃû
+	std::vector<char*> _inputNodeNames; //ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½
+	std::vector<char*> _outputNodeNames;//ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½
 
-	size_t _inputNodesNum = 0;        //ÊäÈë½ÚµãÊý
-	size_t _outputNodesNum = 0;       //Êä³ö½ÚµãÊý
+	size_t _inputNodesNum = 0;        //ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½
+	size_t _outputNodesNum = 0;       //ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½
 
-	ONNXTensorElementDataType _inputNodeDataType; //Êý¾ÝÀàÐÍ
+	ONNXTensorElementDataType _inputNodeDataType; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	ONNXTensorElementDataType _outputNodeDataType;
-	std::vector<int64_t> _inputTensorShape; //ÊäÈëÕÅÁ¿shape
+	std::vector<int64_t> _inputTensorShape; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½shape
 
 	std::vector<int64_t> _outputTensorShape;
 
 public:
 	std::vector<std::string> _className = {
-		"person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light",
-		"fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse", "sheep", "cow",
-		"elephant", "bear", "zebra", "giraffe", "backpack", "umbrella", "handbag", "tie", "suitcase", "frisbee",
-		"skis", "snowboard", "sports ball", "kite", "baseball bat", "baseball glove", "skateboard", "surfboard",
-		"tennis racket", "bottle", "wine glass", "cup", "fork", "knife", "spoon", "bowl", "banana", "apple",
-		"sandwich", "orange", "broccoli", "carrot", "hot dog", "pizza", "donut", "cake", "chair", "couch",
-		"potted plant", "bed", "dining table", "toilet", "tv", "laptop", "mouse", "remote", "keyboard", "cell phone",
-		"microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors", "teddy bear",
-		"hair drier", "toothbrush"
+		"gun",
 	};
 
 

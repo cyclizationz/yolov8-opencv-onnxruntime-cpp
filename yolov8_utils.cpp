@@ -125,7 +125,7 @@ void GetMask2(const Mat& maskProposals, const Mat& mask_protos, OutputSeg& outpu
 	int rang_w = ceil(((temp_rect.x + temp_rect.width) * params[0] + params[2]) / net_width * seg_width) - rang_x;
 	int rang_h = ceil(((temp_rect.y + temp_rect.height) * params[1] + params[3]) / net_height * seg_height) - rang_y;
 
-	//Èç¹ûÏÂÃæµÄ mask_protos(roi_rangs).clone()Î»ÖÃ±¨´í£¬ËµÃ÷ÄãµÄoutput.boxÊý¾Ý²»¶Ô£¬»òÕß¾ØÐÎ¿ò¾Í1¸öÏñËØµÄ£¬¿ªÆôÏÂÃæµÄ×¢ÊÍ²¿·Ö·ÀÖ¹±¨´í¡£
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ mask_protos(roi_rangs).clone()Î»ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½output.boxï¿½ï¿½ï¿½Ý²ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ß¾ï¿½ï¿½Î¿ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ØµÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½Í²ï¿½ï¿½Ö·ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	rang_w = MAX(rang_w, 1);
 	rang_h = MAX(rang_h, 1);
 	if (rang_x + rang_w > seg_width) {
@@ -169,7 +169,7 @@ void GetMask2(const Mat& maskProposals, const Mat& mask_protos, OutputSeg& outpu
 
 }
 
-void DrawPred(Mat& img, vector<OutputSeg> result, std::vector<std::string> classNames, vector<Scalar> color) {
+void DrawPred(Mat& img, vector<OutputSeg> result, std::vector<std::string> classNames, vector<Scalar> color,const std::string& out_path) {
 	Mat mask = img.clone();
 	for (int i = 0; i < result.size(); i++) {
 		int left, top;
@@ -187,8 +187,7 @@ void DrawPred(Mat& img, vector<OutputSeg> result, std::vector<std::string> class
 		putText(img, label, Point(left, top), FONT_HERSHEY_SIMPLEX, 1, color[result[i].id], 2);
 	}
 	addWeighted(img, 0.5, mask, 0.5, 0, img); //add mask to src
-	imshow("1", img);
-	//imwrite("out.bmp", img);
+	imwrite(out_path, img);
 	waitKey();
 	//destroyAllWindows();
 
