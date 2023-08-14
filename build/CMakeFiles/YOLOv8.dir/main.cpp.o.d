@@ -161,7 +161,10 @@ CMakeFiles/YOLOv8.dir/main.cpp.o: \
  /usr/include/c++/9/bits/allocated_ptr.h \
  /usr/include/c++/9/bits/refwrap.h \
  /usr/include/c++/9/ext/aligned_buffer.h /usr/include/c++/9/bits/fs_dir.h \
- /usr/include/c++/9/bits/fs_ops.h /usr/include/c++/9/iostream \
+ /usr/include/c++/9/bits/fs_ops.h /usr/include/c++/9/fstream \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
+ /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/iostream \
  /root/autodl-tmp/opencv-4.x/include/opencv2/opencv.hpp \
  /root/autodl-tmp/build/opencv2/opencv_modules.hpp \
  /root/autodl-tmp/opencv-4.x/modules/core/include/opencv2/core.hpp \

@@ -29,6 +29,15 @@ unzip opencv_contrib.zip</br>
 >mkdir -p build && cd build
 ### Configure
 >cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.x/modules ../opencv-4.x
+
+### Configure with CUDA to enable GPU inference:
+checkout your CUDA installation using
+>nvcc --version
+
+Here, `WITH_CUDA=ON` enables CUDA support, and `CUDA_ARCH_BIN` and `CUDA_ARCH_PTX` specify the compute capability of your GPU. Adjust the compute capability according to your GPU model.
+
+>cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUDA=ON -D CUDA_ARCH_BIN=7.5 -D CUDA_ARCH_PTX=7.5 -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.x/modules ../opencv-4.x
+
 ### Build
 > cmake --build .
 ### Specify OpenCV_DIR in CMakeLists.txt
@@ -95,3 +104,5 @@ Then you can specify parameters in command line like:
 ## TODO:
 1. Modify multi-file inference, to read models only once per inference.
 2. Add .yaml interpreter to use Python configs directly.
+3. Convert image mask output to polygon points.
+4. Use separate timers to get pre-process, inference, post-process time.

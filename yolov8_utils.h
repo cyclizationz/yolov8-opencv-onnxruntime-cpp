@@ -1,15 +1,17 @@
 #pragma once
 #include<iostream>
+#include <vector>
 #include <numeric>
 #include<opencv2/opencv.hpp>
 
-#define YOLO_P6 false //�Ƿ�ʹ��P6ģ��
-#define ORT_OLD_VISON 12  //ort1.12.0 ֮ǰ�İ汾Ϊ�ɰ汾API
+#define YOLO_P6 false 
+#define ORT_OLD_VISON 12  //ort1.12.0 old version ORT API
 struct OutputSeg {
-	int id;             //������id
-	float confidence;   //������Ŷ�
-	cv::Rect box;       //���ο�
-	cv::Mat boxMask;       //���ο���mask����ʡ�ڴ�ռ�ͼӿ��ٶ�
+	int id;             //result id
+	float confidence;   //result confidence
+	cv::Rect box;       //result bounding box [w,h from point(x,y)]
+	cv::Mat boxMask;       //binary box mask in bbox area
+	std::vector<cv::Point> polygonPoints;
 };
 struct MaskParams {
 	int segChannels = 32;
@@ -17,7 +19,7 @@ struct MaskParams {
 	int segHeight = 160;
 	int netWidth = 640;
 	int netHeight = 640;
-	float maskThreshold = 0.5;
+	float maskThreshold = 0.7;
 	cv::Size srcImgShape;
 	cv::Vec4d params;
 

@@ -72,10 +72,10 @@ bool Yolov8Seg::Detect(Mat &srcImg, Net &net, vector<OutputSeg> &output) {
   for (int r = 0; r < rows; ++r) {
     cv::Mat scores(1, _className.size(), CV_32FC1, pdata + 4);
     Point classIdPoint;
-    double max_class_socre;
-    minMaxLoc(scores, 0, &max_class_socre, 0, &classIdPoint);
-    max_class_socre = (float)max_class_socre;
-    if (max_class_socre >= _classThreshold) {
+    double max_class_score;
+    minMaxLoc(scores, 0, &max_class_score, 0, &classIdPoint);
+    max_class_score = (float)max_class_score;
+    if (max_class_score >= _classThreshold) {
       vector<float> temp_proto(pdata + 4 + _className.size(),
                                pdata + net_width);
       picked_proposals.push_back(temp_proto);
@@ -87,7 +87,7 @@ bool Yolov8Seg::Detect(Mat &srcImg, Net &net, vector<OutputSeg> &output) {
       int left = MAX(int(x - 0.5 * w + 0.5), 0);
       int top = MAX(int(y - 0.5 * h + 0.5), 0);
       class_ids.push_back(classIdPoint.x);
-      confidences.push_back(max_class_socre);
+      confidences.push_back(max_class_score);
       boxes.push_back(Rect(left, top, int(w + 0.5), int(h + 0.5)));
     }
     pdata += net_width; // next line

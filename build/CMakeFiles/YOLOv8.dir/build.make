@@ -73,85 +73,85 @@ CMakeFiles/YOLOv8.dir/main.cpp.o: CMakeFiles/YOLOv8.dir/flags.make
 CMakeFiles/YOLOv8.dir/main.cpp.o: /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/main.cpp
 CMakeFiles/YOLOv8.dir/main.cpp.o: CMakeFiles/YOLOv8.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/YOLOv8.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/YOLOv8.dir/main.cpp.o -MF CMakeFiles/YOLOv8.dir/main.cpp.o.d -o CMakeFiles/YOLOv8.dir/main.cpp.o -c /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/main.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/YOLOv8.dir/main.cpp.o -MF CMakeFiles/YOLOv8.dir/main.cpp.o.d -o CMakeFiles/YOLOv8.dir/main.cpp.o -c /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/main.cpp
 
 CMakeFiles/YOLOv8.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/YOLOv8.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/main.cpp > CMakeFiles/YOLOv8.dir/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/main.cpp > CMakeFiles/YOLOv8.dir/main.cpp.i
 
 CMakeFiles/YOLOv8.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/YOLOv8.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/main.cpp -o CMakeFiles/YOLOv8.dir/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/main.cpp -o CMakeFiles/YOLOv8.dir/main.cpp.s
 
 CMakeFiles/YOLOv8.dir/yolov8.cpp.o: CMakeFiles/YOLOv8.dir/flags.make
 CMakeFiles/YOLOv8.dir/yolov8.cpp.o: /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8.cpp
 CMakeFiles/YOLOv8.dir/yolov8.cpp.o: CMakeFiles/YOLOv8.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/YOLOv8.dir/yolov8.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/YOLOv8.dir/yolov8.cpp.o -MF CMakeFiles/YOLOv8.dir/yolov8.cpp.o.d -o CMakeFiles/YOLOv8.dir/yolov8.cpp.o -c /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/YOLOv8.dir/yolov8.cpp.o -MF CMakeFiles/YOLOv8.dir/yolov8.cpp.o.d -o CMakeFiles/YOLOv8.dir/yolov8.cpp.o -c /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8.cpp
 
 CMakeFiles/YOLOv8.dir/yolov8.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/YOLOv8.dir/yolov8.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8.cpp > CMakeFiles/YOLOv8.dir/yolov8.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8.cpp > CMakeFiles/YOLOv8.dir/yolov8.cpp.i
 
 CMakeFiles/YOLOv8.dir/yolov8.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/YOLOv8.dir/yolov8.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8.cpp -o CMakeFiles/YOLOv8.dir/yolov8.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8.cpp -o CMakeFiles/YOLOv8.dir/yolov8.cpp.s
 
 CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.o: CMakeFiles/YOLOv8.dir/flags.make
 CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.o: /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_onnx.cpp
 CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.o: CMakeFiles/YOLOv8.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.o -MF CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.o.d -o CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.o -c /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_onnx.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.o -MF CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.o.d -o CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.o -c /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_onnx.cpp
 
 CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_onnx.cpp > CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_onnx.cpp > CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.i
 
 CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_onnx.cpp -o CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_onnx.cpp -o CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.s
 
 CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.o: CMakeFiles/YOLOv8.dir/flags.make
 CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.o: /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg.cpp
 CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.o: CMakeFiles/YOLOv8.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.o -MF CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.o.d -o CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.o -c /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.o -MF CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.o.d -o CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.o -c /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg.cpp
 
 CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg.cpp > CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg.cpp > CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.i
 
 CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg.cpp -o CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg.cpp -o CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.s
 
 CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.o: CMakeFiles/YOLOv8.dir/flags.make
 CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.o: /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg_onnx.cpp
 CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.o: CMakeFiles/YOLOv8.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.o -MF CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.o.d -o CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.o -c /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg_onnx.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.o -MF CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.o.d -o CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.o -c /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg_onnx.cpp
 
 CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg_onnx.cpp > CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg_onnx.cpp > CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.i
 
 CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg_onnx.cpp -o CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_seg_onnx.cpp -o CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.s
 
 CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.o: CMakeFiles/YOLOv8.dir/flags.make
 CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.o: /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_utils.cpp
 CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.o: CMakeFiles/YOLOv8.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.o -MF CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.o.d -o CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.o -c /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_utils.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.o -MF CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.o.d -o CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.o -c /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_utils.cpp
 
 CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_utils.cpp > CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_utils.cpp > CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.i
 
 CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_utils.cpp -o CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/yolov8_utils.cpp -o CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.s
 
 # Object files for target YOLOv8
 YOLOv8_OBJECTS = \
@@ -178,6 +178,10 @@ YOLOv8: /root/autodl-tmp/build/lib/libopencv_aruco.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_bgsegm.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_bioinspired.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_ccalib.so.4.8.0
+YOLOv8: /root/autodl-tmp/build/lib/libopencv_cudabgsegm.so.4.8.0
+YOLOv8: /root/autodl-tmp/build/lib/libopencv_cudafeatures2d.so.4.8.0
+YOLOv8: /root/autodl-tmp/build/lib/libopencv_cudaobjdetect.so.4.8.0
+YOLOv8: /root/autodl-tmp/build/lib/libopencv_cudastereo.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_dnn_objdetect.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_dnn_superres.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_dpm.so.4.8.0
@@ -211,10 +215,14 @@ YOLOv8: /root/autodl-tmp/build/lib/libopencv_plot.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_text.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_ml.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_phase_unwrapping.so.4.8.0
+YOLOv8: /root/autodl-tmp/build/lib/libopencv_cudacodec.so.4.8.0
+YOLOv8: /root/autodl-tmp/build/lib/libopencv_videoio.so.4.8.0
+YOLOv8: /root/autodl-tmp/build/lib/libopencv_cudaoptflow.so.4.8.0
+YOLOv8: /root/autodl-tmp/build/lib/libopencv_cudalegacy.so.4.8.0
+YOLOv8: /root/autodl-tmp/build/lib/libopencv_cudawarping.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_optflow.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_ximgproc.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_video.so.4.8.0
-YOLOv8: /root/autodl-tmp/build/lib/libopencv_videoio.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_imgcodecs.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_objdetect.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_calib3d.so.4.8.0
@@ -222,8 +230,12 @@ YOLOv8: /root/autodl-tmp/build/lib/libopencv_dnn.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_features2d.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_flann.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_photo.so.4.8.0
+YOLOv8: /root/autodl-tmp/build/lib/libopencv_cudaimgproc.so.4.8.0
+YOLOv8: /root/autodl-tmp/build/lib/libopencv_cudafilters.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_imgproc.so.4.8.0
+YOLOv8: /root/autodl-tmp/build/lib/libopencv_cudaarithm.so.4.8.0
 YOLOv8: /root/autodl-tmp/build/lib/libopencv_core.so.4.8.0
+YOLOv8: /root/autodl-tmp/build/lib/libopencv_cudev.so.4.8.0
 YOLOv8: CMakeFiles/YOLOv8.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable YOLOv8"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/YOLOv8.dir/link.txt --verbose=$(VERBOSE)
