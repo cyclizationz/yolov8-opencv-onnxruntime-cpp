@@ -32,14 +32,36 @@ unzip opencv_contrib.zip</br>
 
 ### Configure with CUDA to enable GPU inference:
 checkout your CUDA installation using
->nvcc --version
+>nvidia-smi </br>
+nvcc --version
 
-Here, `WITH_CUDA=ON` enables CUDA support, and `CUDA_ARCH_BIN` and `CUDA_ARCH_PTX` specify the compute capability of your GPU. Adjust the compute capability according to your GPU model.
+Here, `WITH_CUDA=ON` enables CUDA support, and `CUDA_ARCH_BIN` and `CUDA_ARCH_PTX` specify the compute capability of your GPU. Adjust the compute capability according to your GPU model. Find your GPU’s cc [here](https://developer.nvidia.com/cuda-gpus).
 
->cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_CUDA=ON -D CUDA_ARCH_BIN=7.5 -D CUDA_ARCH_PTX=7.5 -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.x/modules ../opencv-4.x
+```bash
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+	-D CMAKE_INSTALL_PREFIX=/usr/local \
+	-D INSTALL_C_EXAMPLES=ON \
+	-D INSTALL_PYTHON_EXAMPLES=ON \
+	-D OPENCV_ENABLE_NONFREE=ON \
+	-D WITH_CUDA=ON \
+	-D WITH_CUDNN=ON \
+	-D OPENCV_DNN_CUDA=ON \
+	-D ENABLE_FAST_MATH=1 \
+	-D CUDA_FAST_MATH=1 \
+	-D CUDA_ARCH_BIN=7.5 \
+    -D CUDA_ARCH_PTX=7.5 \
+	-D WITH_CUBLAS=1 \
+	-D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.x/modules \
+	-D HAVE_opencv_python3=ON \
+	-D PYTHON_EXECUTABLE=/root/miniconda3/envs/yolo/bin/python \
+	-D BUILD_EXAMPLES=ON \
+	../opencv-4.x
+```
 
-### Build
-> cmake --build .
+### Make and Install
+use ```nproc``` in terminal to get no. of processors and replace that with 8 below in j8.
+>make -j8 \
+>sudo make install
 ### Specify OpenCV_DIR in CMakeLists.txt
 >SET (OpenCV_DIR /path/to/OpenCV/Build)
 
