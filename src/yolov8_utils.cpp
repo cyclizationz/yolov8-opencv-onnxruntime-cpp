@@ -236,13 +236,13 @@ std::vector<cv::Point> binaryMaskToPolygon(const cv::Mat &mask,
       if (mask.at<uchar>(row, col) != 0) {
         current_point = {col, row};
         if (points.size() <= 2 ||
-            (!IsThreePointsInLine(points[points.size() - 3],
-                                  points[points.size() - 2], current_point,
-                                  0.017) &&
-             points[points.size() - 2].y != current_point.y)) {
+            // (!IsThreePointsInLine(points[points.size() - 3],
+            //                       points[points.size() - 2], current_point,
+            //                       0.017) &&
+            (points[points.size() - 1].y != current_point.y && points[points.size() - 1].x != current_point.x)) {
 
-          points.push_back({col, row});
-        }
+            points.push_back({col, row});
+          }
       }
     }
   }
