@@ -104,5 +104,4 @@ Then you can specify parameters in command line like:
 ## TODO:
 1. Modify multi-file inference, to read models only once per inference.
 2. Add .yaml interpreter to use Python configs directly.
-3. Convert image mask output to polygon points.
-4. Use separate timers to get pre-process, inference, post-process time.
+3. Use separate timers to get pre-process, inference, post-process time.
