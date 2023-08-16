@@ -11,7 +11,7 @@ struct OutputSeg {
 	float confidence;   //result confidence
 	cv::Rect box;       //result bounding box [w,h from point(x,y)]
 	cv::Mat boxMask;       //binary box mask in bbox area
-	std::vector<cv::Point> polygonPoints;
+	std::vector<cv::Point> polygonPoints;     //polygon points silhouette of the mask in the whole image
 };
 struct MaskParams {
 	int segChannels = 32;
@@ -19,7 +19,7 @@ struct MaskParams {
 	int segHeight = 160;
 	int netWidth = 640;
 	int netHeight = 640;
-	float maskThreshold = 0.7;
+	float maskThreshold = 0.55;
 	cv::Size srcImgShape;
 	cv::Vec4d params;
 
@@ -36,6 +36,7 @@ void LetterBox(const cv::Mat& image, cv::Mat& outImage,
 	const cv::Scalar& color = cv::Scalar(114, 114, 114));
 void GetMask(const cv::Mat& maskProposals, const cv::Mat& maskProtos, std::vector<OutputSeg>& output, const MaskParams& maskParams);
 void GetMask2(const cv::Mat& maskProposals, const cv::Mat& maskProtos, OutputSeg& output, const MaskParams& maskParams);
-
+std::vector<cv::Point> binaryMaskToPolygon(const cv::Mat& mask, const cv::Rect& box);
+void check_opencv();
 
 

@@ -35,7 +35,7 @@ public:
 #endif // YOLO_P6
 
   float _classThreshold = 0.25;
-  float _nmsThreshold = 0.45;
+  float _nmsThreshold = 0.7;
   float _maskThreshold = 0.5;
 
   // 类别名，自己的模型需要修改此项

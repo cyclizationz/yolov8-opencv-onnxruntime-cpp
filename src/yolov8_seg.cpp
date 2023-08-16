@@ -12,8 +12,8 @@ bool Yolov8Seg::ReadModel(Net &net, const string &netPath,
         false); // bug of opencv4.7.x in AVX only platform
                 // ,https://github.com/opencv/opencv/pull/23112 and
                 // https://github.com/opencv/opencv/issues/23080
-    // net.enableWinograd(true);		//If your CPU supports AVX2, you can set it
-    // true to speed up
+    // net.enableWinograd(true);		//If your CPU supports AVX2, you can set
+    // it true to speed up
 #endif
   } catch (const std::exception &) {
     return false;
@@ -50,8 +50,8 @@ bool Yolov8Seg::Detect(Mat &srcImg, Net &net, vector<OutputSeg> &output) {
   //
   //$ blobFromImage(netInputImg, blob, 1 / 255.0, cv::Size(_netWidth,
   //_netHeight), cv::Scalar(104, 117, 123), true, false); $
-  //blobFromImage(netInputImg, blob, 1 / 255.0, cv::Size(_netWidth, _netHeight),
-  //cv::Scalar(114, 114,114), true, false);
+  // blobFromImage(netInputImg, blob, 1 / 255.0, cv::Size(_netWidth,
+  // _netHeight), cv::Scalar(114, 114,114), true, false);
   //****************************************************************************************************************************************************/
   net.setInput(blob);
   std::vector<cv::Mat> net_output_img;
@@ -89,9 +89,14 @@ bool Yolov8Seg::Detect(Mat &srcImg, Net &net, vector<OutputSeg> &output) {
       class_ids.push_back(classIdPoint.x);
       confidences.push_back(max_class_score);
       boxes.push_back(Rect(left, top, int(w + 0.5), int(h + 0.5)));
+      // for (const auto &proposals : temp_proto) {
+      //   cout << proposals << " ";
+      // }
+      // cout << endl;
     }
     pdata += net_width; // next line
   }
+
   // NMS
   vector<int> nms_result;
   NMSBoxes(boxes, confidences, _classThreshold, _nmsThreshold, nms_result);
@@ -111,6 +116,9 @@ bool Yolov8Seg::Detect(Mat &srcImg, Net &net, vector<OutputSeg> &output) {
   mask_params.params = params;
   mask_params.srcImgShape = srcImg.size();
   for (int i = 0; i < temp_mask_proposals.size(); ++i) {
+    // for (const auto& mask_proposal : temp_mask_proposals[i])
+    //   cout << mask_proposal << " ";
+    // cout << endl;
     GetMask2(Mat(temp_mask_proposals[i]).t(), net_output_img[1], output[i],
              mask_params);
   }

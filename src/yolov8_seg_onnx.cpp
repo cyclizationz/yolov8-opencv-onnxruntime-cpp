@@ -156,6 +156,7 @@ bool Yolov8SegOnnx::ReadModel(const std::string& modelPath, bool isCuda, int cud
 			}
 
 			delete[]temp;
+			return true;
 		}
 	}
 	catch (const std::exception&) {

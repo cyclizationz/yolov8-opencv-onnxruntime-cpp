@@ -39,11 +39,10 @@ static void generate_mask_color() {
 template <typename _Tp>
 int yolov8(_Tp &cls, Mat &img, const string &model_path,
            const std::string &out_path, bool isCuda = false) {
-
   Net net;
   string out_image_path = out_path + ".png";
-  string out_txt_path = out_path + ".txt";
-  // cout << out_image_path << " " << out_txt_path << endl;
+  string out_json_path = out_path + ".json";
+  // cout << out_image_path << " " << out_json_path << endl;
   if (cls.ReadModel(net, model_path, isCuda)) {
     cout << "read net ok!" << endl;
   } else {
@@ -53,19 +52,67 @@ int yolov8(_Tp &cls, Mat &img, const string &model_path,
 
   if (cls.Detect(img, net, result)) {
     ofstream result_stream;
-    result_stream.open(out_txt_path);
+    result_stream.open(out_json_path);
     if (result_stream.is_open()) {
-      for (auto seg : result) {
-        cout << "Instance detected/segmented: " << seg.id
-             << " ,confidence: " << seg.confidence << endl;
-        result_stream << seg.id << std::endl;
-        result_stream << seg.box << std::endl;
-        result_stream << seg.boxMask << std::endl;
-        result_stream << seg.confidence << std::endl;
-        cout << "Result text files saved to:" << out_txt_path << endl;
+      result_stream << "{\n";
+      result_stream << "  \"version\": \"5.2.1\",\n";
+      result_stream << "  \"flags\": {},\n";
+      result_stream << "  \"shapes\": [\n";
+
+      for (size_t i = 0; i < result.size(); i++) {
+        cout << "Instance detected/segmented: " << result[i].id
+             << " bbox: " << result[i].box << " ,confidence: " << result[i].confidence
+             << endl;
+
+        result_stream << "    {\n";
+        result_stream << "      \"label\": \"gun\",\n";
+        result_stream << "      \"points\": [\n";
+
+        if (std::is_same<_Tp, Yolov8>::value) {
+          // If the task is detection
+          result_stream << "        [\n";
+          result_stream << "          " << result[i].box.x << ",\n "
+                        << result[i].box.y << "\n";
+          result_stream << "        ],\n";
+          result_stream << "        [\n";
+          result_stream << "          " << result[i].box.x + result[i].box.width
+                        << ",\n          " << result[i].box.y + result[i].box.height
+                        << "\n";
+          result_stream << "        ]\n";
+        } else if (std::is_same<_Tp, Yolov8Seg>::value) {
+          // If the task is segmentation
+          for (size_t j = 0; j < result[i].polygonPoints.size(); j++) {
+            result_stream << "        [\n";
+            result_stream << "          " << result[i].polygonPoints[j].x
+                          << ",\n          " << result[i].polygonPoints[j].y << "\n";
+            result_stream << "        ]";
+            if (j != result[i].polygonPoints.size() - 1) {
+              result_stream << ",\n";
+            } else {
+              result_stream << "\n";
+            }
+          }
+        }
+
+        result_stream << "      ],\n";
+        result_stream << "      \"group_id\": null,\n";
+        result_stream << "      \"description\": \"\",\n";
+        result_stream << "      \"shape_type\": \"polygon\",\n";
+        result_stream << "      \"flags\": {}\n";
+        result_stream << "    }";
+
+        if (i != result.size() - 1) {
+          result_stream << ",";
+        }
+        result_stream << "\n";
       }
+
+      result_stream << "  ]\n";
+      result_stream << "}\n";
+
     } else {
-      cout << "Result text files" << out_txt_path << "cannot be opened" << endl;
+      cout << "Result .json files" << out_json_path << "cannot be opened"
+           << endl;
     }
     DrawPred(img, result, cls._className, color, out_image_path);
     result_stream.close();
@@ -81,8 +128,8 @@ int yolov8_onnx(_Tp &cls, Mat &img, const string &model_path,
                 int cudaID = 0, bool warmUp = true) {
 
   string out_image_path = out_path + ".png";
-  string out_txt_path = out_path + ".txt";
-  // cout << out_image_path << " " << out_txt_path << endl;
+  string out_json_path = out_path + ".json";
+  // cout << out_image_path << " " << out_json_path << endl;
 
   if (cls.ReadModel(model_path, isCuda, cudaID, warmUp)) {
     cout << "read net ok!" << endl;
@@ -93,19 +140,67 @@ int yolov8_onnx(_Tp &cls, Mat &img, const string &model_path,
   vector<OutputSeg> result;
   if (cls.OnnxDetect(img, result)) {
     ofstream result_stream;
-    result_stream.open(out_txt_path);
+    result_stream.open(out_json_path);
     if (result_stream.is_open()) {
-      for (auto seg : result) {
-        cout << "Instance detected/segmented: " << seg.id
-             << " ,confidence: " << seg.confidence << endl;
-        result_stream << seg.id << std::endl;
-        result_stream << seg.box << std::endl;
-        result_stream << seg.boxMask << std::endl;
-        result_stream << seg.confidence << std::endl;
-        cout << "Result text files saved to:" << out_txt_path << endl;
+      result_stream << "{\n";
+      result_stream << "  \"version\": \"5.2.1\",\n";
+      result_stream << "  \"flags\": {},\n";
+      result_stream << "  \"shapes\": [\n";
+
+      for (size_t i = 0; i < result.size(); i++) {
+        cout << "Instance detected/segmented: " << result[i].id
+             << " bbox: " << result[i].box << " ,confidence: " << result[i].confidence
+             << endl;
+
+        result_stream << "    {\n";
+        result_stream << "      \"label\": \"gun\",\n";
+        result_stream << "      \"points\": [\n";
+
+        if (std::is_same<_Tp, Yolov8Onnx>::value) {
+          // If the task is detection
+          result_stream << "        [\n";
+          result_stream << "          " << result[i].box.x << ", "
+                        << result[i].box.y << "\n";
+          result_stream << "        ],\n";
+          result_stream << "        [\n";
+          result_stream << "          " << result[i].box.x + result[i].box.width
+                        << ",\n          " << result[i].box.y + result[i].box.height
+                        << "\n";
+          result_stream << "        ]\n";
+        } else if (std::is_same<_Tp, Yolov8SegOnnx>::value) {
+          // If the task is segmentation
+          for (size_t j = 0; j < result[i].polygonPoints.size(); j++) {
+            result_stream << "        [\n";
+            result_stream << "          " << result[i].polygonPoints[j].x
+                          << ",\n          " << result[i].polygonPoints[j].y << "\n";
+            result_stream << "        ]";
+            if (j != result[i].polygonPoints.size() - 1) {
+              result_stream << ",\n";
+            } else {
+              result_stream << "\n";
+            }
+          }
+        }
+
+        result_stream << "      ],\n";
+        result_stream << "      \"group_id\": null,\n";
+        result_stream << "      \"description\": \"\",\n";
+        result_stream << "      \"shape_type\": \"polygon\",\n";
+        result_stream << "      \"flags\": {}\n";
+        result_stream << "    }";
+
+        if (i != result.size() - 1) {
+          result_stream << ",";
+        }
+        result_stream << "\n";
       }
+
+      result_stream << "  ]\n";
+      result_stream << "}\n";
+
     } else {
-      cout << "Result text files" << out_txt_path << "cannot be opened" << endl;
+      cout << "Result .json files" << out_json_path << "cannot be opened"
+           << endl;
     }
     DrawPred(img, result, cls._className, color, out_image_path);
     result_stream.close();
@@ -165,8 +260,10 @@ void process_image_onnx(const std::string &img_path,
 
   // Print progress information
   std::cout << "Processed image: " << img_path << std::endl;
-  // yolov8_onnx(task_detect_onnx,img,detect_model_path,output_dir); //onnxruntime detect
-  // yolov8_onnx(task_segment_onnx,img,seg_model_path,output_dir); //onnxruntime segment
+  // yolov8_onnx(task_detect_onnx,img,detect_model_path,output_dir);
+  // //onnxruntime detect
+  // yolov8_onnx(task_segment_onnx,img,seg_model_path,output_dir); //onnxruntime
+  // segment
   if (task == "detect") {
     Yolov8Onnx task_detect;
     yolov8_onnx(task_detect, img, model_path, out_path, isCuda, cudaID, warmUp);
@@ -188,6 +285,7 @@ int main(int argc, char *argv[]) {
   int cudaID = 0;
   bool warmUp = true;
   generate_mask_color();
+  // check_opencv();
 
   for (int i = 1; i < argc; i++) {
     std::string arg = argv[i];
@@ -218,7 +316,6 @@ int main(int argc, char *argv[]) {
   // yolov8(task_detect,img,detect_model_path,output_dir);    //Opencv detect
   // yolov8(task_segment,img,seg_model_path,output_dir);   //opencv segment
 
-
   if (input_dir.empty()) {
     std::cout << "Error: No input path or directories specified." << std::endl;
     return 1;
@@ -238,24 +335,31 @@ int main(int argc, char *argv[]) {
       if (enable_onnxruntime) {
         process_image_onnx(entry.path().c_str(), model_path, task, out_path,
                            isCuda, cudaID, warmUp);
-        std::cout << "Prediction saved to:" << out_path << std::endl;
+        std::cout << "Prediction saved to:" << out_path << ".png" << std::endl;
+        std::cout << "Result .json files saved to:" << out_path << ".json"
+                  << endl;
       } else {
         process_image(entry.path().c_str(), model_path, task, out_path, isCuda);
-        std::cout << "Prediction saved to:" << out_path << std::endl;
+        std::cout << "Prediction saved to:" << out_path << ".png" << std::endl;
+        std::cout << "Result .json files saved to:" << out_path << ".json"
+                  << endl;
+        std::cout << "==================================================="
+                  << std::endl;
       }
     }
-  } 
+  }
   // else if (fs::is_regular_file(input_dir)) { // Process single image file
   //   std::string out_path = output_dir + fs::path(input_dir).stem().string();
   //   if (enable_onnxruntime) {
-  //     process_image_onnx(input_dir, model_path, task, out_path, isCuda, cudaID,
+  //     process_image_onnx(input_dir, model_path, task, out_path, isCuda,
+  //     cudaID,
   //                        warmUp);
   //     std::cout << "Prediction saved to:" << out_path << std::endl;
   //   } else {
   //     process_image(input_dir, model_path, task, out_path, isCuda);
   //     std::cout << "Prediction saved to:" << out_path << std::endl;
   //   }
-  // } 
+  // }
   else {
     if (!fs::exists(input_dir)) {
       std::cout << "Error: Input path: " << input_dir << " not found."
