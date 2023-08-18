@@ -3,7 +3,7 @@
 #include<memory>
 #include <opencv2/opencv.hpp>
 #include "yolov8_utils.h"
-#include<core/session/onnxruntime_cxx_api.h>
+#include<onnxruntime_cxx_api.h>
 
 //#include <tensorrt_provider_factory.h>  //if use OrtTensorRTProviderOptionsV2
 //#include <onnxruntime_c_api.h>
@@ -17,7 +17,6 @@ public:
 
 public:
 	/** \brief Read onnx-model
-	* \param[in] session:session to load model
 	* \param[in] modelPath:onnx-model path
 	* \param[in] isCuda:if true,use Ort-GPU,else run it on cpu.
 	* \param[in] cudaID:if isCuda==true,run Ort-GPU on cudaID.
@@ -36,6 +35,10 @@ public:
 	*/
 	bool OnnxBatchDetect(std::vector<cv::Mat>& srcImg, std::vector<std::vector<OutputSeg>>& output);
 
+	bool modelInitialized(){
+		return this->_OrtSession!=nullptr;
+	}
+
 private:
 
 	template <typename T>
@@ -46,8 +49,8 @@ private:
 	int Preprocessing(const std::vector<cv::Mat>& SrcImgs, std::vector<cv::Mat>& OutSrcImgs, std::vector<cv::Vec4d>& params);
 #if(defined YOLO_P6 && YOLO_P6==true)
 	//const float _netAnchors[4][6] = { { 19,27, 44,40, 38,94 },{ 96,68, 86,152, 180,137 },{ 140,301, 303,264, 238,542 },{ 436,615, 739,380, 925,792 } };
-	const int _netWidth = 1280;  //ONNXͼƬ�������
-	const int _netHeight = 1280; //ONNXͼƬ����߶�
+	const int _netWidth = 1280;  //ONNX图片输入宽度
+	const int _netHeight = 1280; //ONNX图片输入高度
 	const int _segWidth = 320;  //_segWidth=_netWidth/mask_ratio
 	const int _segHeight = 320;
 	const int _segChannels = 32;
@@ -66,13 +69,13 @@ private:
 	bool _isDynamicShape = false;//onnx support dynamic shape
 
 
-	float _classThreshold = 0.25;
-	float _nmsThreshold = 0.7;
-	float _maskThreshold = 0.5;
+	float _classThreshold = 0.7;
+	float _nmsThreshold = 0.5;
+	float _maskThreshold = 0.75;
 
 
 	//ONNXRUNTIME	
-	Ort::Env _OrtEnv = Ort::Env(OrtLoggingLevel::ORT_LOGGING_LEVEL_ERROR, "Yolov8-Seg");
+	Ort::Env _OrtEnv = Ort::Env(OrtLoggingLevel::ORT_LOGGING_LEVEL_ERROR, "Yolov5-Seg");
 	Ort::SessionOptions _OrtSessionOptions = Ort::SessionOptions();
 	Ort::Session* _OrtSession = nullptr;
 	Ort::MemoryInfo _OrtMemoryInfo;
@@ -83,15 +86,15 @@ private:
 	std::shared_ptr<char> _inputName, _output_name0,_output_name1;
 #endif
 
-	std::vector<char*> _inputNodeNames; //����ڵ���
-	std::vector<char*> _outputNodeNames;//����ڵ���
+	std::vector<char*> _inputNodeNames;
+	std::vector<char*> _outputNodeNames;
 
-	size_t _inputNodesNum = 0;        //����ڵ���
-	size_t _outputNodesNum = 0;       //����ڵ���
+	size_t _inputNodesNum = 0;
+	size_t _outputNodesNum = 0;
 
-	ONNXTensorElementDataType _inputNodeDataType; //��������
+	ONNXTensorElementDataType _inputNodeDataType;
 	ONNXTensorElementDataType _outputNodeDataType;
-	std::vector<int64_t> _inputTensorShape; //��������shape
+	std::vector<int64_t> _inputTensorShape;
 
 	std::vector<int64_t> _outputTensorShape;
 	std::vector<int64_t> _outputMaskTensorShape;

@@ -124,6 +124,4 @@ Then you can specify parameters in command line like:
 >YOLOv8 -i:./images --task=segment --onnx --cuda:0
 
 ## TODO:
-1. Modify multi-file inference, to read models only once per inference.
-2. Add .yaml interpreter to use Python configs directly.
-3. Use separate timers to get pre-process, inference, post-process time.
+1. Add .yaml interpreter to use Python configs directly.

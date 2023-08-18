@@ -30,10 +30,14 @@ public:
 	*/
 	bool OnnxDetect(cv::Mat& srcImg, std::vector<OutputSeg>& output);
 	/** \brief  detect,batch size= _batchSize
-	* \param[in] srcImg:A batch of images.
+	* \param[in] srcImgs:A batch of images.
 	* \param[out] output:detection results of input images.
 	*/
-	bool OnnxBatchDetect(std::vector<cv::Mat>& srcImg, std::vector<std::vector<OutputSeg>>& output);
+	bool OnnxBatchDetect(std::vector<cv::Mat>& srcImgs, std::vector<std::vector<OutputSeg>>& output);
+
+	bool modelInitialized(){
+		return this->_OrtSession!=nullptr;
+	}
 
 private:
 

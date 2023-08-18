@@ -34,9 +34,9 @@ public:
 
 #endif // YOLO_P6
 
-  float _classThreshold = 0.25;
-  float _nmsThreshold = 0.7;
-  float _maskThreshold = 0.5;
+  float _classThreshold = 0.7;
+  float _nmsThreshold = 0.5;
+  float _maskThreshold = 0.75;
 
   // 类别名，自己的模型需要修改此项
   std::vector<std::string> _className = {
