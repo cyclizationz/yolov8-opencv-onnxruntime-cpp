@@ -12,8 +12,8 @@ bool Yolov8Seg::ReadModel(Net &net, const string &netPath,
         false); // bug of opencv4.7.x in AVX only platform
                 // ,https://github.com/opencv/opencv/pull/23112 and
                 // https://github.com/opencv/opencv/issues/23080
-    // net.enableWinograd(true);		//If your CPU supports AVX2, you can set
-    // it true to speed up
+    // net.enableWinograd(true);		//If your CPU supports AVX2, you can
+    // set it true to speed up
 #endif
   } catch (const std::exception &) {
     return false;
@@ -34,12 +34,17 @@ bool Yolov8Seg::ReadModel(Net &net, const string &netPath,
 }
 
 bool Yolov8Seg::Detect(Mat &srcImg, Net &net, vector<OutputSeg> &output) {
+  double total_time = 0.0;
+  cv::TickMeter tm;
+  tm.start();
+
   Mat blob;
   output.clear();
   int col = srcImg.cols;
   int row = srcImg.rows;
   Mat netInputImg;
   Vec4d params;
+
   LetterBox(srcImg, netInputImg, params, cv::Size(_netWidth, _netHeight));
   blobFromImage(netInputImg, blob, 1 / 255.0, cv::Size(_netWidth, _netHeight),
                 cv::Scalar(0, 0, 0), true, false);
@@ -56,7 +61,24 @@ bool Yolov8Seg::Detect(Mat &srcImg, Net &net, vector<OutputSeg> &output) {
   net.setInput(blob);
   std::vector<cv::Mat> net_output_img;
   vector<string> output_layer_names{"output0", "output1"};
+
+  // pre-process time
+  tm.stop();
+  double preprocess_time = tm.getTimeMilli();
+  total_time += preprocess_time;
+  tm.reset();
+  tm.start();
+
   net.forward(net_output_img, output_layer_names); // get outputs
+
+  // inference time
+  tm.stop();
+  double inference_time = tm.getTimeMilli();
+  total_time += inference_time;
+  tm.reset();
+  tm.start();
+
+  
   std::vector<int> class_ids;                      // res-class_id
   std::vector<float> confidences;                  // res-conf
   std::vector<cv::Rect> boxes;                     // res-box
@@ -122,6 +144,17 @@ bool Yolov8Seg::Detect(Mat &srcImg, Net &net, vector<OutputSeg> &output) {
     GetMask2(Mat(temp_mask_proposals[i]).t(), net_output_img[1], output[i],
              mask_params);
   }
+
+  // Post-process time
+  tm.stop();
+  double postprocess_time = tm.getTimeMilli();
+  total_time += postprocess_time;
+
+  // Print separate times and total time
+  std::cout << "Pre-process time: " << preprocess_time << "ms  "
+            << "Inference time: " << inference_time << "ms  "
+            << "Post-process time: " << postprocess_time << " ms  "
+            << "Total time: " << total_time << " ms. " << std::endl;
 
   //******************** ****************
   // 老版本的方案，如果上面在开启我注释的部分之后还一直报错，建议使用这个。

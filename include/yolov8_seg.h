@@ -1,5 +1,7 @@
 #pragma once
 #include "yolov8_utils.h"
+#if defined(_CV_DNN_ENABLED) &&                                                \
+    defined(_CV_VERSION_EARLY_4_5) // build with cudnn and opencv 4.5.0
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
@@ -43,3 +45,4 @@ public:
       "gun",
   };
 };
+#endif

@@ -5,6 +5,7 @@
 #include<opencv2/opencv.hpp>
 
 #define YOLO_P6 false 
+#define _CV_DNN_ENABLED false
 #define ORT_OLD_VISON 12  //ort1.12.0 old version ORT API
 struct OutputSeg {
 	int id;             //result id

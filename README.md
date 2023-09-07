@@ -98,6 +98,9 @@ When building on x86 Windows without “–arm” or “–arm64” or “–arm
 #### LINUX
 > ./build.sh --config RelWithDebInfo --build_shared_lib --parallel --compile_no_warning_as_error --skip_submodule_sync
 
+#### Build with CUDA and cuDNN
+> ./build.sh --config RelWithDebInfo --build_shared_lib --parallel --compile_no_warning_as_error --skip_submodule_sync --use_cuda --cuda_home=/usr/local/cuda/ --cudnn_home=/usr/local/cuda/
+
 ### Specify ONNXRuntime_LIB in CMakeLists.txt
 ONNX do not provide **find_packages** in CMake, so we should configure cmake using the following script.
 ```cmake

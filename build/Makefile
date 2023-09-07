@@ -153,125 +153,125 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-yolov8.o: yolov8.cpp.o
-.PHONY : yolov8.o
+src/yolov8.o: src/yolov8.cpp.o
+.PHONY : src/yolov8.o
 
 # target to build an object file
-yolov8.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8.cpp.o
-.PHONY : yolov8.cpp.o
+src/yolov8.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8.cpp.o
+.PHONY : src/yolov8.cpp.o
 
-yolov8.i: yolov8.cpp.i
-.PHONY : yolov8.i
+src/yolov8.i: src/yolov8.cpp.i
+.PHONY : src/yolov8.i
 
 # target to preprocess a source file
-yolov8.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8.cpp.i
-.PHONY : yolov8.cpp.i
+src/yolov8.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8.cpp.i
+.PHONY : src/yolov8.cpp.i
 
-yolov8.s: yolov8.cpp.s
-.PHONY : yolov8.s
+src/yolov8.s: src/yolov8.cpp.s
+.PHONY : src/yolov8.s
 
 # target to generate assembly for a file
-yolov8.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8.cpp.s
-.PHONY : yolov8.cpp.s
+src/yolov8.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8.cpp.s
+.PHONY : src/yolov8.cpp.s
 
-yolov8_onnx.o: yolov8_onnx.cpp.o
-.PHONY : yolov8_onnx.o
+src/yolov8_onnx.o: src/yolov8_onnx.cpp.o
+.PHONY : src/yolov8_onnx.o
 
 # target to build an object file
-yolov8_onnx.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.o
-.PHONY : yolov8_onnx.cpp.o
+src/yolov8_onnx.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8_onnx.cpp.o
+.PHONY : src/yolov8_onnx.cpp.o
 
-yolov8_onnx.i: yolov8_onnx.cpp.i
-.PHONY : yolov8_onnx.i
+src/yolov8_onnx.i: src/yolov8_onnx.cpp.i
+.PHONY : src/yolov8_onnx.i
 
 # target to preprocess a source file
-yolov8_onnx.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.i
-.PHONY : yolov8_onnx.cpp.i
+src/yolov8_onnx.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8_onnx.cpp.i
+.PHONY : src/yolov8_onnx.cpp.i
 
-yolov8_onnx.s: yolov8_onnx.cpp.s
-.PHONY : yolov8_onnx.s
+src/yolov8_onnx.s: src/yolov8_onnx.cpp.s
+.PHONY : src/yolov8_onnx.s
 
 # target to generate assembly for a file
-yolov8_onnx.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8_onnx.cpp.s
-.PHONY : yolov8_onnx.cpp.s
+src/yolov8_onnx.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8_onnx.cpp.s
+.PHONY : src/yolov8_onnx.cpp.s
 
-yolov8_seg.o: yolov8_seg.cpp.o
-.PHONY : yolov8_seg.o
+src/yolov8_seg.o: src/yolov8_seg.cpp.o
+.PHONY : src/yolov8_seg.o
 
 # target to build an object file
-yolov8_seg.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.o
-.PHONY : yolov8_seg.cpp.o
+src/yolov8_seg.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8_seg.cpp.o
+.PHONY : src/yolov8_seg.cpp.o
 
-yolov8_seg.i: yolov8_seg.cpp.i
-.PHONY : yolov8_seg.i
+src/yolov8_seg.i: src/yolov8_seg.cpp.i
+.PHONY : src/yolov8_seg.i
 
 # target to preprocess a source file
-yolov8_seg.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.i
-.PHONY : yolov8_seg.cpp.i
+src/yolov8_seg.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8_seg.cpp.i
+.PHONY : src/yolov8_seg.cpp.i
 
-yolov8_seg.s: yolov8_seg.cpp.s
-.PHONY : yolov8_seg.s
+src/yolov8_seg.s: src/yolov8_seg.cpp.s
+.PHONY : src/yolov8_seg.s
 
 # target to generate assembly for a file
-yolov8_seg.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8_seg.cpp.s
-.PHONY : yolov8_seg.cpp.s
+src/yolov8_seg.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8_seg.cpp.s
+.PHONY : src/yolov8_seg.cpp.s
 
-yolov8_seg_onnx.o: yolov8_seg_onnx.cpp.o
-.PHONY : yolov8_seg_onnx.o
+src/yolov8_seg_onnx.o: src/yolov8_seg_onnx.cpp.o
+.PHONY : src/yolov8_seg_onnx.o
 
 # target to build an object file
-yolov8_seg_onnx.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.o
-.PHONY : yolov8_seg_onnx.cpp.o
+src/yolov8_seg_onnx.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8_seg_onnx.cpp.o
+.PHONY : src/yolov8_seg_onnx.cpp.o
 
-yolov8_seg_onnx.i: yolov8_seg_onnx.cpp.i
-.PHONY : yolov8_seg_onnx.i
+src/yolov8_seg_onnx.i: src/yolov8_seg_onnx.cpp.i
+.PHONY : src/yolov8_seg_onnx.i
 
 # target to preprocess a source file
-yolov8_seg_onnx.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.i
-.PHONY : yolov8_seg_onnx.cpp.i
+src/yolov8_seg_onnx.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8_seg_onnx.cpp.i
+.PHONY : src/yolov8_seg_onnx.cpp.i
 
-yolov8_seg_onnx.s: yolov8_seg_onnx.cpp.s
-.PHONY : yolov8_seg_onnx.s
+src/yolov8_seg_onnx.s: src/yolov8_seg_onnx.cpp.s
+.PHONY : src/yolov8_seg_onnx.s
 
 # target to generate assembly for a file
-yolov8_seg_onnx.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8_seg_onnx.cpp.s
-.PHONY : yolov8_seg_onnx.cpp.s
+src/yolov8_seg_onnx.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8_seg_onnx.cpp.s
+.PHONY : src/yolov8_seg_onnx.cpp.s
 
-yolov8_utils.o: yolov8_utils.cpp.o
-.PHONY : yolov8_utils.o
+src/yolov8_utils.o: src/yolov8_utils.cpp.o
+.PHONY : src/yolov8_utils.o
 
 # target to build an object file
-yolov8_utils.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.o
-.PHONY : yolov8_utils.cpp.o
+src/yolov8_utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8_utils.cpp.o
+.PHONY : src/yolov8_utils.cpp.o
 
-yolov8_utils.i: yolov8_utils.cpp.i
-.PHONY : yolov8_utils.i
+src/yolov8_utils.i: src/yolov8_utils.cpp.i
+.PHONY : src/yolov8_utils.i
 
 # target to preprocess a source file
-yolov8_utils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.i
-.PHONY : yolov8_utils.cpp.i
+src/yolov8_utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8_utils.cpp.i
+.PHONY : src/yolov8_utils.cpp.i
 
-yolov8_utils.s: yolov8_utils.cpp.s
-.PHONY : yolov8_utils.s
+src/yolov8_utils.s: src/yolov8_utils.cpp.s
+.PHONY : src/yolov8_utils.s
 
 # target to generate assembly for a file
-yolov8_utils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/yolov8_utils.cpp.s
-.PHONY : yolov8_utils.cpp.s
+src/yolov8_utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/YOLOv8.dir/build.make CMakeFiles/YOLOv8.dir/src/yolov8_utils.cpp.s
+.PHONY : src/yolov8_utils.cpp.s
 
 # Help Target
 help:
@@ -285,21 +285,21 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... yolov8.o"
-	@echo "... yolov8.i"
-	@echo "... yolov8.s"
-	@echo "... yolov8_onnx.o"
-	@echo "... yolov8_onnx.i"
-	@echo "... yolov8_onnx.s"
-	@echo "... yolov8_seg.o"
-	@echo "... yolov8_seg.i"
-	@echo "... yolov8_seg.s"
-	@echo "... yolov8_seg_onnx.o"
-	@echo "... yolov8_seg_onnx.i"
-	@echo "... yolov8_seg_onnx.s"
-	@echo "... yolov8_utils.o"
-	@echo "... yolov8_utils.i"
-	@echo "... yolov8_utils.s"
+	@echo "... src/yolov8.o"
+	@echo "... src/yolov8.i"
+	@echo "... src/yolov8.s"
+	@echo "... src/yolov8_onnx.o"
+	@echo "... src/yolov8_onnx.i"
+	@echo "... src/yolov8_onnx.s"
+	@echo "... src/yolov8_seg.o"
+	@echo "... src/yolov8_seg.i"
+	@echo "... src/yolov8_seg.s"
+	@echo "... src/yolov8_seg_onnx.o"
+	@echo "... src/yolov8_seg_onnx.i"
+	@echo "... src/yolov8_seg_onnx.s"
+	@echo "... src/yolov8_utils.o"
+	@echo "... src/yolov8_utils.i"
+	@echo "... src/yolov8_utils.s"
 .PHONY : help
 
 

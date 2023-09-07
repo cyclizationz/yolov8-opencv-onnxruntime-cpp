@@ -1,3 +1,0 @@
-/root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/build/CMakeFiles/YOLOv8.dir
-/root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/build/CMakeFiles/edit_cache.dir
-/root/autodl-tmp/yolov8-opencv-onnxruntime-cpp/build/CMakeFiles/rebuild_cache.dir
